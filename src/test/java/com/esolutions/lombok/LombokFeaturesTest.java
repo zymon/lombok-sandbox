@@ -36,4 +36,14 @@ public class LombokFeaturesTest {
         assertThat(result, is(given));
     }
 
+    @Test
+    public void fluentAccessors() {
+        // when
+        String name = lombokFeatures.firstName("John").lastName("Rambo").lastName();
+        name += ", " + lombokFeatures.firstName();
+
+        // then
+        assertThat("Rambo, John", is(name));
+    }
+
 }
