@@ -43,7 +43,17 @@ public class LombokFeaturesTest {
         name += ", " + lombokFeatures.firstName();
 
         // then
-        assertThat("Rambo, John", is(name));
+        assertThat(name, is("Rambo, John"));
+    }
+
+    @Test
+    public void builder() {
+        // when
+        BuilderExample builderExample = BuilderExample.builder().name("John").age(25).build();
+
+        // then
+        assertThat(builderExample.getName(), is("John"));
+        assertThat(builderExample.getAge(), is(25));
     }
 
 }
